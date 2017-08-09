@@ -15,8 +15,9 @@ public class Main {
 	 * 		String[] which will be empty. Elements in it will be ignored at program start
 	 */
 	public static void main(String[] args) {
-		StockScreener screener = new StockScreener();
-
+		StockScreener.run();
+		
+		
 	}
 
 }
