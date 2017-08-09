@@ -15,7 +15,7 @@ public class Main {
 	 * 		String[] which will be empty. Elements in it will be ignored at program start
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		StockScreener screener = new StockScreener();
 
 	}
 
