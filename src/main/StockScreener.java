@@ -2,7 +2,7 @@ package main;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
@@ -35,7 +35,7 @@ public class StockScreener extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setMaximized(true);
 		primaryStage.setTitle("StockScreener");
-		StackPane root = new StackPane();
+		BorderPane root = new BorderPane();
 		
 		//TODO: add components to the scene
 		
