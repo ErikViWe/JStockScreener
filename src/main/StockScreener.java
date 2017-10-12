@@ -1,5 +1,6 @@
 package main;
 
+import guiComponents.Display;
 import guiComponents.Header;
 import guiComponents.Selector;
 import javafx.application.Application;
@@ -17,6 +18,7 @@ public class StockScreener extends Application {
 	
 	private Header header;
 	private Selector selector;
+	private Display display;
 	
 	/**
 	 * Constructor generates the StockScreener object.
@@ -40,6 +42,7 @@ public class StockScreener extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		header = new Header();
 		selector = new Selector();
+		display = new Display();
 		
 		primaryStage.setMaximized(true);
 		primaryStage.setTitle("StockScreener");
@@ -47,6 +50,7 @@ public class StockScreener extends Application {
 		
 		root.setTop(header);
 		root.setRight(selector);
+		root.setCenter(display);
 		
 	    primaryStage.setScene(new Scene(root));
 	    primaryStage.show();
