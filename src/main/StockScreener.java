@@ -1,5 +1,6 @@
 package main;
 
+import guiComponents.Debug;
 import guiComponents.Display;
 import guiComponents.Header;
 import guiComponents.Selector;
@@ -19,6 +20,7 @@ public class StockScreener extends Application {
 	private Header header;
 	private Selector selector;
 	private Display display;
+	private Debug debug;
 	
 	/**
 	 * Constructor generates the StockScreener object.
@@ -43,6 +45,7 @@ public class StockScreener extends Application {
 		header = new Header();
 		selector = new Selector();
 		display = new Display();
+		debug = new Debug();
 		
 		primaryStage.setMaximized(true);
 		primaryStage.setTitle("StockScreener");
@@ -51,6 +54,7 @@ public class StockScreener extends Application {
 		root.setTop(header);
 		root.setRight(selector);
 		root.setCenter(display);
+		root.setBottom(debug);
 		
 	    primaryStage.setScene(new Scene(root));
 	    primaryStage.show();
