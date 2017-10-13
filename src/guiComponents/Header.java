@@ -47,6 +47,9 @@ public class Header extends HBox {
 		this.setSpacing(10);
 	}
 	
+	/**
+	 * Initializes the stock label
+	 */
 	private void initLabelStock() {
 		lb_stock = new Label("Stock:");
 		lb_stock.setPrefHeight(50);
@@ -54,11 +57,17 @@ public class Header extends HBox {
 		lb_stock.setFont(new Font(30));
 	}
 	
+	/**
+	 * Initializes the text field
+	 */
 	private void initTextFieldStock() {
 		tf_stock = new TextField("SIN");
 		tf_stock.setFont(new Font(30));
 	}
 	
+	/**
+	 * Initializes the combo box (dropdown menue) with the supported selections
+	 */
 	private void initComboBoxSpan() {
 		dd_time_span = new ComboBox<String>();
 		dd_time_span.setStyle("-fx-font: 30px \"System Regular\";");
@@ -67,12 +76,18 @@ public class Header extends HBox {
 		dd_time_span.setValue("5 Days");
 	}
 	
+	/**
+	 * Initializes the show button
+	 */
 	private void initButtonShow() {
 		btn_show = new Button("Show");
 		btn_show.setFont(new Font(30));
 		btn_show.setAlignment(Pos.CENTER);
 	}
 	
+	/**
+	 * Initializes the help button
+	 */
 	private void initButtonHelp() {
 		btn_help = new Button("Help");
 		btn_help.setFont(new Font(30));
