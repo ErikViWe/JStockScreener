@@ -76,5 +76,9 @@ public class Entry {
 	public String getSymbol() {
 		return symbol;
 	}
+	
+	public String getDate() {
+		return this.getDay() + "," + this.getMonth() + "," + this.getYear();
+	}
 
 }

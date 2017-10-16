@@ -1,5 +1,6 @@
 package main;
 
+import financeApiComponents.QueryGenerator;
 import guiComponents.Debug;
 import guiComponents.Display;
 import guiComponents.Header;
@@ -21,13 +22,14 @@ public class StockScreener extends Application {
 	private Selector selector;
 	private Display display;
 	private Debug debug;
+	private QueryGenerator query;
 	
 	/**
-	 * Constructor generates the StockScreener object.
+	 * Constructor generates the StockScreener object as well as the query object.
 	 * This constructor is executed at the javafx initialization time.
 	 */
 	public StockScreener() {
-		
+		query = new QueryGenerator();
 	}
 	
 	/**
@@ -42,7 +44,7 @@ public class StockScreener extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		header = new Header();
+		header = new Header(this);
 		selector = new Selector();
 		display = new Display();
 		debug = new Debug();
@@ -59,6 +61,14 @@ public class StockScreener extends Application {
 	    primaryStage.setScene(new Scene(root));
 	    primaryStage.show();
 		
+	}
+	
+	public void display(String sin, Integer span) {
+		if (!sin.equals(query.getSymbol())) {
+			query.fetchStockData(sin);
+		}
+		
+		display.show(query.getData(), span, query.getName());
 	}
 	
 }
