@@ -1,7 +1,6 @@
 package financeApiComponents;
 
 import java.io.IOException;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 
 import yahoofinance.Stock;
