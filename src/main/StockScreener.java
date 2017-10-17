@@ -63,9 +63,9 @@ public class StockScreener extends Application {
 		
 	}
 	
-	public void display(String sin, Integer span) {
-		if (!sin.equals(query.getSymbol())) {
-			query.fetchStockData(sin);
+	public void display(String isin, Integer span) {
+		if (!isin.equals(query.getSymbol())) {
+			query.fetchStockData(isin);
 		}
 		
 		display.show(query.getData(), span, query.getName());

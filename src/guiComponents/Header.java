@@ -67,7 +67,7 @@ public class Header extends HBox {
 	 * Initializes the text field
 	 */
 	private void initTextFieldStock() {
-		tf_stock = new TextField("SIN");
+		tf_stock = new TextField("ISIN");
 		tf_stock.setFont(new Font(30));
 	}
 	
@@ -105,9 +105,9 @@ public class Header extends HBox {
 
 			@Override
 			public void handle(MouseEvent e) {
-				String sin = tf_stock.getText();
+				String isin = tf_stock.getText();
 				String span = dd_time_span.getValue();
-				stockScreener.display(sin, convertSpan(span));
+				stockScreener.display(isin, convertSpan(span));
 			}
 			
 		});
