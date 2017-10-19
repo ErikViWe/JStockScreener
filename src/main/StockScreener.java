@@ -4,6 +4,7 @@ import financeApiComponents.QueryGenerator;
 import guiComponents.Debug;
 import guiComponents.Display;
 import guiComponents.Header;
+import guiComponents.Information;
 import guiComponents.Selector;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -19,6 +20,7 @@ import javafx.stage.Stage;
 public class StockScreener extends Application {
 	
 	private Header header;
+	private Information information;
 	private Selector selector;
 	private Display display;
 	private Debug debug;
@@ -45,6 +47,7 @@ public class StockScreener extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		header = new Header(this);
+		information = new Information();
 		selector = new Selector();
 		display = new Display();
 		debug = new Debug();
@@ -54,6 +57,7 @@ public class StockScreener extends Application {
 		BorderPane root = new BorderPane();
 		
 		root.setTop(header);
+		root.setLeft(information);
 		root.setRight(selector);
 		root.setCenter(display);
 		root.setBottom(debug);
@@ -69,6 +73,11 @@ public class StockScreener extends Application {
 		}
 		
 		display.show(query.getData(), span, query.getName());
+		information.setName(query.getName());
+		information.setCurrency(query.getCurrency());
+		information.setStockExchange(query.getStockExchange());
+		information.setAnnualYield(query.getAnnualYield());
+		information.setAnnualYieldPercent(query.getAnnualYieldPercent());
 	}
 	
 }
