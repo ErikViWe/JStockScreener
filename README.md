@@ -21,6 +21,7 @@ The following content consists of a status overview of all components and indica
 - Selector
 - Display
 - Debug
+- Information
 
 ### Moving Averages:
 - 38 Moving Average
