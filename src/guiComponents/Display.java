@@ -19,6 +19,8 @@ public class Display extends VBox {
 	private Separator separator;
 	private CategoryAxis xAxis;
 	private NumberAxis yAxis;
+	private Entry[] data;
+	private int span;
 	
 	public Display() {
 		init();
@@ -51,6 +53,9 @@ public class Display extends VBox {
 	}
 	
 	public void show(Entry[] data, Integer span, String name) {
+		
+		this.data = data;
+		this.span = span;
 		
 		Series<String, Number> series = new XYChart.Series<String, Number>();
 		series.setName("Prices of: " + name);
@@ -94,6 +99,22 @@ public class Display extends VBox {
 		
 		this.getChildren().clear();
 		this.getChildren().addAll(chart, separator);
+	}
+	
+	public void showAverage(BigDecimal[] avg, int n) {
+		Series<String, Number> average = new XYChart.Series<String, Number>();
+		average.setName("Moving Average " + n);
+		
+		int start = 0;
+		if (avg.length > span) {		
+			start = avg.length - span - 1;
+		}
+		for (int i = start; i < data.length; i++) {
+			BigDecimal price = avg[i].setScale(2, RoundingMode.HALF_UP);
+			average.getData().add(new XYChart.Data<>(data[i].getDate(), price));
+		}
+		
+		chart.getData().add(average);
 	}
 
 }
