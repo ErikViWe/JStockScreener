@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 
 import financeApiComponents.Entry;
 import javafx.geometry.Orientation;
+import javafx.geometry.Side;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -30,6 +31,7 @@ public class Display extends VBox {
 		//defining the axis
 		xAxis = new CategoryAxis();
 		yAxis = new NumberAxis();
+		yAxis.setSide(Side.RIGHT);
 		
 		xAxis.setLabel("Date");
 		yAxis.setLabel("Price");
@@ -87,6 +89,7 @@ public class Display extends VBox {
 		yAxis.setAutoRanging(false);
 		yAxis.setUpperBound(max.doubleValue());
 		yAxis.setLowerBound(min.doubleValue());
+		yAxis.setSide(Side.RIGHT);
 		
 		xAxis.setLabel("Date");
 		yAxis.setLabel("Price");
