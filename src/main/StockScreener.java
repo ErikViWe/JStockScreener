@@ -1,5 +1,6 @@
 package main;
 
+import average.Average;
 import financeApiComponents.QueryGenerator;
 import guiComponents.Debug;
 import guiComponents.Display;
@@ -73,6 +74,12 @@ public class StockScreener extends Application {
 		}
 		
 		display.show(query.getData(), span, query.getName());
+		
+		//Display moving averages selected
+		for (int n : selector.getMovingAverageSelection()) {
+			display.showAverage(Average.getAverage(query.getData(), n), n);
+		}
+		
 		information.setName(query.getName());
 		information.setCurrency(query.getCurrency());
 		information.setStockExchange(query.getStockExchange());

@@ -1,5 +1,7 @@
 package guiComponents;
 
+import java.util.LinkedList;
+
 import javafx.geometry.Insets;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -83,6 +85,32 @@ public class Selector extends VBox {
 		cb_volumePriceTrend = new CheckBox("Volume Priced Trend");
 		cb_williamsR = new CheckBox("Williams %R");
 		
+	}
+	
+	public LinkedList<Integer> getMovingAverageSelection() {
+		LinkedList<Integer> selection = new LinkedList<Integer>();
+		
+		if (cb_3avg.isSelected()) {
+			selection.add(3);
+		}
+		
+		if (cb_18avg.isSelected()) {
+			selection.add(18);
+		}
+		
+		if (cb_38avg.isSelected()) {
+			selection.add(30);
+		}
+		
+		if (cb_100avg.isSelected()) {
+			selection.add(100);
+		}
+		
+		if (cb_200avg.isSelected()) {
+			selection.add(200);
+		}
+		
+		return selection;
 	}
 
 }
