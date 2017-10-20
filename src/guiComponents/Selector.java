@@ -9,7 +9,10 @@ public class Selector extends VBox {
 	
 	private Label lb_avg;
 	private Label lb_indicators;
+	private CheckBox cb_3avg;
+	private CheckBox cb_18avg;
 	private CheckBox cb_38avg;
+	private CheckBox cb_100avg;
 	private CheckBox cb_200avg;
 	private CheckBox cb_rsi;
 	private CheckBox cb_macd;
@@ -40,7 +43,7 @@ public class Selector extends VBox {
 		initLabels();
 		initCheckBoxes();
 		
-		this.getChildren().addAll(lb_avg, cb_38avg, cb_200avg, lb_indicators, cb_rsi, cb_macd,
+		this.getChildren().addAll(lb_avg, cb_3avg, cb_18avg, cb_38avg, cb_100avg, cb_200avg, lb_indicators, cb_rsi, cb_macd,
 				cb_stochasticSlow, cb_stochasticFast, cb_aroonUpDown, cb_aroonOscillator, cb_avgTrueRange, cb_commodityChannelIndex, 
 				cb_chaikinMoneyFlow, cb_chaikinOscillator, cb_directionalMovementIndex, cb_moneyFlowIndex, cb_negativeVolumeIndex, cb_positiveVolumeIndex,
 				cb_rateOfChange, cb_stochasticRSI, cb_ultimateOscillator, cb_verticalHorizontalFilter, cb_volumePriceTrend, cb_williamsR);
@@ -54,7 +57,10 @@ public class Selector extends VBox {
 	}
 	
 	private void initCheckBoxes() {
+		cb_3avg = new CheckBox("3");
+		cb_18avg = new CheckBox("18");
 		cb_38avg = new CheckBox("38");
+		cb_100avg = new CheckBox("100");
 		cb_200avg = new CheckBox("200");
 		cb_rsi = new CheckBox("RSI");
 		cb_macd = new CheckBox("MACD");

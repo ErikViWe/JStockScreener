@@ -24,7 +24,10 @@ The following content consists of a status overview of all components and indica
 - Information
 
 ### Moving Averages:
+- 3 Moving Average
+- 18 Moving Average
 - 38 Moving Average
+- 100 Moving Average
 - 200 Moving Average
 
 ### Indicators:
