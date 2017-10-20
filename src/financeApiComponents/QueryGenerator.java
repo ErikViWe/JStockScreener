@@ -49,10 +49,16 @@ public class QueryGenerator {
 	}
 	
 	public String getAnnualYield() {
+		if (stock.getDividend().getAnnualYield() == null) {
+			return "no data";
+		}
 		return stock.getDividend().getAnnualYield().toString();
 	}
 	
 	public String getAnnualYieldPercent() {
+		if (stock.getDividend().getAnnualYieldPercent() == null) {
+			return "no data";
+		}
 		return stock.getDividend().getAnnualYieldPercent().toString();
 	}
 	
