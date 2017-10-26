@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 
 import financeApiComponents.Entry;
 
-public class Average {
+public class MovingAverage {
 
 	public static BigDecimal[] getAverage(Entry[] data, int n) {
 		BigDecimal[] arr = new BigDecimal[data.length];
