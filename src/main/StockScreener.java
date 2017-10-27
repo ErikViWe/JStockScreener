@@ -1,5 +1,7 @@
 package main;
 
+import java.util.LinkedList;
+
 import average.MovingAverage;
 import financeApiComponents.QueryGenerator;
 import guiComponents.Debug;
@@ -10,6 +12,7 @@ import guiComponents.Selector;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -79,6 +82,9 @@ public class StockScreener extends Application {
 		for (int n : selector.getMovingAverageSelection()) {
 			display.showAverage(MovingAverage.getAverage(query.getData(), n), n);
 		}
+		
+		LinkedList<VBox> indicators = selector.getIndicators(query.getData(), span);
+		display.getChildren().addAll(indicators);
 		
 		information.setName(query.getName());
 		information.setCurrency(query.getCurrency());
