@@ -11,6 +11,7 @@ import guiComponents.Information;
 import guiComponents.Selector;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -60,10 +61,14 @@ public class StockScreener extends Application {
 		primaryStage.setTitle("StockScreener");
 		BorderPane root = new BorderPane();
 		
+		ScrollPane scroll = new ScrollPane();
+		scroll.setFitToWidth(true);
+		scroll.setContent(display);
+		
 		root.setTop(header);
 		root.setLeft(information);
 		root.setRight(selector);
-		root.setCenter(display);
+		root.setCenter(scroll);
 		root.setBottom(debug);
 		
 	    primaryStage.setScene(new Scene(root));
