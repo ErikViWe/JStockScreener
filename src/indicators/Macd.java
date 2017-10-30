@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import average.ExponentialMovingAverage;
 import financeApiComponents.Entry;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Side;
 import javafx.scene.chart.CategoryAxis;
@@ -58,6 +59,7 @@ public class Macd extends VBox {
 		separator.setOrientation(Orientation.HORIZONTAL);
 		
 		this.getChildren().addAll(lb_name, chart, btn_info, separator);
+		this.setPadding(new Insets(10, 10, 10, 10));
 		this.setSpacing(10);
 	}
 	
