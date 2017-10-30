@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import financeApiComponents.Entry;
 import indicators.Macd;
+import indicators.Rsi;
 import javafx.geometry.Insets;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -119,6 +120,9 @@ public class Selector extends VBox {
 		LinkedList<VBox> indicators = new LinkedList<VBox>();
 		if (cb_macd.isSelected()) {
 			indicators.add(new Macd(data, span));
+		}
+		if (cb_rsi.isSelected()) {
+			indicators.add(new Rsi(data, span));
 		}
 		
 		return indicators;
