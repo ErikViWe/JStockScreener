@@ -27,4 +27,36 @@ public class MovingAverage {
 		
 	}
 	
+	public static BigDecimal[] getRS(Entry[] data, int n) {
+		BigDecimal[] arr = new BigDecimal[data.length];
+		BigDecimal inc = data[0].getClose();
+		BigDecimal dec = new BigDecimal(0);
+		
+		for (int i = 1; i < data.length; i++) {
+			//Add close price to inc sum or dec sum depending if the price is rising or falling
+			if (data[i].getClose().compareTo(data[i - 1].getClose()) == -1) {
+				dec.add(data[i].getClose());
+			} else {
+				inc.add(data[i].getClose());
+			}
+			
+			//Calculate relative strength
+			if (dec.compareTo(BigDecimal.ZERO) == 0) {
+				arr[i] = inc;
+			} else {
+				arr[i] = inc.divide(dec, 2, RoundingMode.HALF_UP);
+			}
+			
+			//Subtract prices older than n days
+			if (i > n) {
+				if (data[i - n].getClose().compareTo(data[i - n - 1].getClose()) == -1) {
+					dec.subtract(data[i].getClose());
+				} else {
+					inc.subtract(data[i].getClose());
+				}
+			}
+		}	
+		return arr;
+	}
+	
 }
