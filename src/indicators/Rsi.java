@@ -1,5 +1,9 @@
 package indicators;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import average.MovingAverage;
 import financeApiComponents.Entry;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -44,7 +48,7 @@ public class Rsi extends VBox {
 		
 		chart = new LineChart<String, Number>(xAxis, yAxis);
 		chart.setTitle("RSI (20)");
-		//chart.getData().add(rsi);
+		chart.getData().add(rsi);
 		chart.setCreateSymbols(false);
 		
 		btn_info = new Button("Information about RSI");
@@ -58,7 +62,14 @@ public class Rsi extends VBox {
 	}
 	
 	private void calcLine() {
-		//TODO implement rsi calculation
+		rsi = new XYChart.Series<String, Number>();
+		rsi.setName("RSI");
+		
+		BigDecimal[] arr = MovingAverage.getRS(data, 14);
+		for (int i = 0; i < arr.length; i++) {
+			BigDecimal rsi_value = new BigDecimal(100).subtract(new BigDecimal(100).divide(new BigDecimal(1).add(arr[i]), 2, RoundingMode.HALF_UP));
+			rsi.getData().add(new XYChart.Data<>(data[i].getDate(), rsi_value));
+		}
 	}
 
 }
