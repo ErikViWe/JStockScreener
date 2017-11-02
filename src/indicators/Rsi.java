@@ -66,7 +66,13 @@ public class Rsi extends VBox {
 		rsi.setName("RSI");
 		
 		BigDecimal[] arr = MovingAverage.getRS(data, 14);
-		for (int i = 0; i < arr.length; i++) {
+		
+		int start = 0;
+		if (data.length > span) {
+			start = data.length - span - 1;
+		}
+		
+		for (int i = start; i < arr.length; i++) {
 			BigDecimal rsi_value = new BigDecimal(100).subtract(new BigDecimal(100).divide(new BigDecimal(1).add(arr[i]), 2, RoundingMode.HALF_UP));
 			rsi.getData().add(new XYChart.Data<>(data[i].getDate(), rsi_value));
 		}

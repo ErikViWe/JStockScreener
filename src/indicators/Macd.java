@@ -11,7 +11,6 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
@@ -82,7 +81,12 @@ public class Macd extends VBox {
 		
 		BigDecimal[] signalAverage = ExponentialMovingAverage.getExponentialAverage(difference, 9);
 		
-		for (int i = 0; i < data.length; i++) {
+		int start = 0;
+		if (data.length > span) {
+			start = data.length - span - 1;
+		}
+		
+		for (int i = start; i < data.length; i++) {
 			signal.getData().add(new XYChart.Data<>(data[i].getDate(), signalAverage[i]));
 		}
 	}
