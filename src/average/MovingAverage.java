@@ -23,8 +23,26 @@ public class MovingAverage {
 				}
 			}	
 		}
-		return arr;
-		
+		return arr;	
+	}
+	
+	public static BigDecimal[] getAverage(BigDecimal[] data, int n) {
+		BigDecimal[] arr = new BigDecimal[data.length];
+		BigDecimal sum = new BigDecimal(0);
+		for (int i = 0; i < data.length; i++) {
+			sum = sum.add(data[i]);
+			if (i >= n) {
+				sum = sum.subtract(data[i - n]);
+				arr[i] = sum.divide(new BigDecimal(n), 2, RoundingMode.HALF_UP);
+			} else {
+				if (i != 0) {
+					arr[i] = sum.divide(new BigDecimal(i + 1), 2, RoundingMode.HALF_UP);
+				} else {
+					arr[i] = sum.setScale(2, RoundingMode.HALF_UP);
+				}
+			}	
+		}
+		return arr;	
 	}
 	
 	public static BigDecimal[] getRS(Entry[] data, int n) {
