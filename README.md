@@ -1,3 +1,5 @@
+<h1>The JStockScreener is no longer supported due to the missing support of Yahoo! Finance</h1>
+<br>
 <h1 align="center">JStockScreener</h1>
 <p>
 The JStockScreener is a stock screening tool providing a huge variety of indicators used in the technical analysis of stock markets. Using the "Yahoo! Finance API", this project has access to a massive collection of historical as well as current stock prices from more than 1000 stock market listed companies.
